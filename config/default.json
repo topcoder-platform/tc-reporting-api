@@ -1,0 +1,13 @@
+{
+  "authSecret": "secret",
+  "logLevel": "info",
+  "version": "v4",
+  "captureLogs": "false",
+  "lookerApi": {
+    "host": "https://topcoder.looker.com:19999/api/3.0",
+    "client_id": "9VYVfQV2W2Nh3Z4dCZDW",
+    "client_secret": "rhjnQrZ9mRd3kfWV9PDrmnR6",
+    "loginUrl": "/login",
+    "timeout": 30000
+  }
+}

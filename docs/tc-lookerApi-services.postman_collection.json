@@ -1,0 +1,53 @@
+{
+	"id": "8b0024a8-5580-4898-345d-b499e039e572",
+	"name": "tc-lookerApi-services",
+	"description": "",
+	"order": [
+		"fcf8231d-96aa-7405-aa83-c26775ddc07b",
+		"1e26ddd2-7e0f-57cd-14e3-d891db8b408a"
+	],
+	"folders": [],
+	"timestamp": 1481097733666,
+	"owner": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "1e26ddd2-7e0f-57cd-14e3-d891db8b408a",
+			"headers": "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJhZG1pbmlzdHJhdG9yIl0sImlzcyI6Imh0dHBzOi8vYXBpLnRvcGNvZGVyLmNvbSIsImhhbmRsZSI6InRlc3QxIiwiZXhwIjoyNTYzMDc2Njg5LCJ1c2VySWQiOiI0MDA1MTMzMyIsImlhdCI6MTQ2MzA3NjA4OSwiZW1haWwiOiJ0ZXN0QHRvcGNvZGVyLmNvbSIsImp0aSI6ImIzM2I3N2NkLWI1MmUtNDBmZS04MzdlLWJlYjhlMGFlNmE0YSJ9.uiZHiDXF-_KysU5tq-G82oBTYBR0gV_w-svLX_2O6ts\n",
+			"url": "http://127.0.0.1:3000/v4/looks",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1481181834018,
+			"name": "http://127.0.0.1:3000/v4/looks",
+			"description": "",
+			"collectionId": "8b0024a8-5580-4898-345d-b499e039e572",
+			"responses": []
+		},
+		{
+			"id": "fcf8231d-96aa-7405-aa83-c26775ddc07b",
+			"headers": "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJhZG1pbmlzdHJhdG9yIl0sImlzcyI6Imh0dHBzOi8vYXBpLnRvcGNvZGVyLmNvbSIsImhhbmRsZSI6InRlc3QxIiwiZXhwIjoyNTYzMDc2Njg5LCJ1c2VySWQiOiI0MDA1MTMzMyIsImlhdCI6MTQ2MzA3NjA4OSwiZW1haWwiOiJ0ZXN0QHRvcGNvZGVyLmNvbSIsImp0aSI6ImIzM2I3N2NkLWI1MmUtNDBmZS04MzdlLWJlYjhlMGFlNmE0YSJ9.uiZHiDXF-_KysU5tq-G82oBTYBR0gV_w-svLX_2O6ts\n",
+			"url": "http://127.0.0.1:3000/v4/looks/333/run/jpg",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1481179635581,
+			"name": "http://127.0.0.1:3000/v4/looks/{look_id}/{result_format}",
+			"description": "",
+			"collectionId": "8b0024a8-5580-4898-345d-b499e039e572",
+			"responses": []
+		}
+	]
+}

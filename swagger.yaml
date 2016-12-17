@@ -1,0 +1,162 @@
+swagger: '2.0'
+info:
+  version: "4.0.0"
+  description: Looker Api wrapper Service
+  title: Wrapper Service
+host: localhost:3000
+schemes:
+  - https
+basePath: /v4
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+
+produces:
+  - application/json
+
+paths:
+  /looks/{look_id}/run/{result_format}:
+
+    get:
+      security:
+        - Bearer: []
+      summary: Run a Look.
+      description: |
+        Runs a given look's query and returns the results in the requested format.
+        Suported formats:
+        ```json
+        result_format   Description
+        json	          Plain json
+        json_detail	    Row data plus metadata describing the fields, pivots, table calcs, and other aspects of the query
+        csv	            Comma separated values with a header
+        txt	            Tab separated values with a header
+        html	          Simple html
+        md	            Simple markdown
+        xlsx            MS Excel spreadsheet
+        sql	            Returns the generated SQL rather than running the query
+        png	            A PNG image of the visualization of the query
+        jpg	            A JPG image of the visualization of the query
+        ```
+      parameters:
+        - name: look_id
+          in: path
+          type: number
+          format: integer
+          required: true
+          description: the look id
+
+        - name: result_format
+          in: path
+          type: string
+          required: true
+          description: the result fotmat
+
+        - name: limit
+          type: number
+          format: long
+          in: query
+          description: Row limit (may override the limit in the saved query).
+
+        - name: apply_formatting
+          type: boolean
+          in: query
+          description: Apply model-specified formatting to each result.
+
+        - name: cache
+          type: boolean
+          in: query
+          description: 	Get results from cache if available.
+
+        - name: image_width
+          type: number
+          format: long
+          in: query
+          description: Render width for image formats.
+
+        - name: image_height
+          type: number
+          format: long
+          in: query
+          description: Render height for image formats.
+
+        - name: generate_drill_links
+          type: boolean
+          in: query
+          description: Generate drill links (only applicable to 'json_detail' format.
+
+        - name: force_production
+          type: boolean
+          in: query
+          description: 	Force use of production models even if the user is in development mode.
+
+        - name: cache_only
+          type: boolean
+          in: query
+          description: Retrieve any results from cache even if the results have expired.
+
+        - name: path_prefix
+          type: string
+          in: query
+          description: Prefix to use for drill links (url encoded).
+
+        - name: rebuild_pdts
+          type: boolean
+          in: query
+          description: Rebuild PDTS used in query.
+
+        - name: server_table_calcs
+          type: boolean
+          in: query
+          description: 	Perform table calculations on query results
+
+      produces:
+        - application/json
+        - image/png
+        - image/jpg
+        - text
+      responses:
+
+        200:
+          description: ok,response data format by result_format
+        400:
+          description: bad request
+          schema:
+            $ref: "#/definitions/ErrorRsp"
+        422:
+          description: Validation Error
+          schema:
+            $ref: "#/definitions/ErrorRsp"
+        404:
+          description: Not Found
+          schema:
+            $ref: "#/definitions/ErrorRsp"
+
+definitions:
+  ErrorRsp:
+    type: object
+    properties:
+      id:
+        type: string
+      result:
+        type: object
+        properties:
+          success:
+            type: boolean
+          status:
+            type: number
+            format: integer
+          content:
+            type: object
+            properties:
+              message:
+                type: object
+
+
+
+
+
+
+

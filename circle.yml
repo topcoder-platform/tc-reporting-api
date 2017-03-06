@@ -1,0 +1,47 @@
+machine:
+
+  node:
+    version: v5.7.0
+  environment:
+    AUTH_SECRET: secret
+    AUTH_DOMAIN: topcoder-dev.com
+    LOG_LEVEL: debug
+    APP_VERSION: v4
+
+dependencies:
+  pre:
+    - pip install awsebcli
+  override:
+    - npm install
+
+deployment:
+  development:
+    branch: dev
+    commands:
+      - ./ebs_deploy.sh tc-reporting DEV $CIRCLE_BUILD_NUM
+
+
+  production:
+    branch: master
+    commands:
+      - ./ebs_deploy.sh tc-reporting PROD $CIRCLE_BUILD_NUM
+
+    # tag: /v[0-9]+(\.[0-9]+)*/
+    # owner: appirio-tech
+    # commands:
+      # - ./ebs_deploy.sh tc-reporting PROD $CIRCLE_TAG
+
+general:
+  artifacts:
+    - ./coverage
+
+notify:
+  webhooks:
+    # slack - product-dev
+    - url: https://hooks.slack.com/services/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
+
+experimental:
+  notify:
+    branches:
+      only:
+        - master

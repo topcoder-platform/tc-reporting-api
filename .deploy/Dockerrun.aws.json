@@ -12,12 +12,5 @@
     {
       "ContainerPort": "3000"
     }
-  ],
-  "Volumes": [
-    {
-      "HostDirectory": "/var/log/app",
-      "ContainerDirectory": "/log"
-    }
-  ],
-  "Logging": "/var/log/app"
+  ]
 }

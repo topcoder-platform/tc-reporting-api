@@ -39,11 +39,6 @@ general:
   artifacts:
     - ./coverage
 
-notify:
-  webhooks:
-    # slack - product-dev
-    - url: https://hooks.slack.com/services/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
-
 experimental:
   notify:
     branches:

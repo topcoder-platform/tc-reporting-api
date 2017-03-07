@@ -10,6 +10,10 @@ test:
   override:
     - echo "test"
 
+test:
+  override:
+    - echo "test"
+
 deployment:
   development:
     branch: dev

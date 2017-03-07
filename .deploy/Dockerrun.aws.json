@@ -1,5 +1,13 @@
 {
   "AWSEBDockerrunVersion": "1",
+  "Authentication": {
+    "Bucket": "%S3_BUCKET%",
+    "Key": "services/common/tcdockercfg"
+  },
+  "Image": {
+    "Name": "appiriodevops/tc-reporting-service:%TAG%",
+    "Update": "true"
+  },
   "Ports": [
     {
       "ContainerPort": "3000"

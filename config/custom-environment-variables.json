@@ -1,13 +1,14 @@
 {
-  "authSecret": "AUTH_SECRET",
-  "logLevel": "LOG_LEVEL",
-  "version": "APP_VERSION",
-  "captureLogs": "CAPTURE_LOGS",
-  "lookerApi": {
-    "host": "LOOKERAPI_HOST",
-    "client_id": "LOOKERAPI_CLIENT_ID",
-    "client_secret": "LOOKERAPI_CLIENT_SECRET",
-    "loginUrl": "LOOKERAPI_LOGIN_URL",
-    "timeout": "LOOKERAPI_TIMEOUT"
-  }
+    "authSecret": "AUTH_SECRET",
+    "logLevel": "LOG_LEVEL",
+    "version": "APP_VERSION",
+    "captureLogs": "CAPTURE_LOGS",
+    "lookerApi": {
+        "host": "LOOKERAPI_HOST",
+        "client_id": "LOOKERAPI_CLIENT_ID",
+        "client_secret": "LOOKERAPI_CLIENT_SECRET",
+        "loginUrl": "LOOKERAPI_LOGIN_URL",
+        "timeout": "LOOKERAPI_TIMEOUT"
+    },
+    "publicLookId": "PUBLIC_LOOK_ID"
 }

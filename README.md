@@ -35,3 +35,7 @@ Let's add one looker api `/looks` to see how simple it is.
 
 ## Additional features
 - add `/looks` that can get all look
+
+## Anonymous access
+- Ids specified in config/default.json can be viewed without authentication
+- Refer allowAnonymous.js under src/middlewares

@@ -1,5 +1,6 @@
 {
     "authSecret": "AUTH_SECRET",
+    "authDomain": "AUTH_DOMAIN",
     "logLevel": "LOG_LEVEL",
     "version": "APP_VERSION",
     "captureLogs": "CAPTURE_LOGS",

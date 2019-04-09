@@ -2,6 +2,7 @@ FROM node:6.9.4
 LABEL version="1.0"
 LABEL description="Reporting microservice"
 
+RUN sed -i '/jessie-updates/d' /etc/apt/sources.list
 RUN apt-get update && \
     apt-get upgrade -y
 

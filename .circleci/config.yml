@@ -82,12 +82,14 @@ workflows:
     jobs:
       - build
       - deploy_dev:
+          context : org-global
           filters:
             branches:
               only: [dev]
           requires:
             - build
       - deploy_prod:
+          context : org-global
           filters:
             branches:
               only: master

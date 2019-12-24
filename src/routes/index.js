@@ -23,6 +23,16 @@ router.get('/_health', (req, res) => {
 // All service endpoints need authentication
 var jwtAuth = require('tc-core-library-js').middleware.jwtAuthenticator
 
+//Endpoint to flush out cache for a specific look
+
+//router.get('/v4/looks/:look_id(\\d+)/run/_flush',allowAnonymous(),require('./lookerApi/flushLooks'));
+
+//Endpoint to flush out cache for all Look
+//Requires Admin privilages
+
+router.get('/v4/looks/flush/:lookid(\\d+)',require('./lookerApi/flushLooks'));
+
+router.get('/v4/looks/flushAll',require('./lookerApi/flushAll'))
 
 // Register all the routes
 router.get('/v4/looks/:look_id(\\d+)/run/:result_format', allowAnonymous(), require('./lookerApi/runLook'));

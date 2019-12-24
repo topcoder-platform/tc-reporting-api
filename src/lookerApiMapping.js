@@ -10,5 +10,15 @@ module.exports = {
     "url": "/looks",
     "roles": [USER_ROLE.TOPCODER_ADMIN, USER_ROLE.MANAGER],
     "method": "get"
+  },
+  "flushLooks":{
+    "url" : "/looks/_flush/{look_id}",
+    "roles" : [USER_ROLE.TOPCODER_ADMIN, USER_ROLE.MANAGER],
+    "method" : "get"
+  },
+  "flushAll":{
+    "url" : "/looks/_flush",
+    "roles" : [USER_ROLE.TOPCODER_ADMIN, USER_ROLE.MANAGER],
+    "method" : "get"
   }
 }

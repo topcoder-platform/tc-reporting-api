@@ -8,7 +8,9 @@ const permissions = tcMiddleware.permissions;
 
 module.exports = (apiName) => {
     const apiEntity = lookerApiMapping[apiName];
+    
     return [
+        
         basicService.injectRole(apiEntity),
         permissions('lookerApi.common'), // lookerApi common permission , check user role
         (req, res, next) => {

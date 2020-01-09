@@ -15,15 +15,15 @@ export default {
             if(cacheJson[i].lookId == cacheLookId){
                 if(( Date.now() - cacheJson[i].ttl ) > 10000)
                 {
-                    console.log(i);
+                    //console.log(i);
                     console.log("ttl expired")
                     const response = { 'hasttl':i,'hascache':i }
                     return response ;
                 }
-                console.log(i + " : ttl not expired")
-                hasttl = -1
-                const response = { 'hasttl':-1,'hascache':i }
-                return response ;
+                    console.log(i + " : ttl not expired")
+                    hasttl = -1
+                    const response = { 'hasttl':-1,'hascache':i }
+                    return response ;
                  
             }
         } 
@@ -33,8 +33,8 @@ export default {
 
     addToCache:(lookId,resp)=>{
         
-        console.log(lookId)
-        console.log("in add to cache")
+       // console.log(lookId)
+       // console.log("in add to cache")
 
         cacheJson.push(
             {
@@ -92,47 +92,5 @@ export default {
     }
 
 }
-
-
-
-// export function checkCache(cacheLookid){
-
-//     for( var  i = 0 ; i < cacheJson.length ; i ++ ){
-
-//         if(cacheJson[i].lookId == cacheLookid){
-//             if(( Date.now() - cacheJson[i].ttl ) > 10000)
-//             {
-//                 console.log(i);
-//                 console.log("ttl expired")
-//                 const response = { 'hasttl':i,'hascache':i }
-//                 return response ;
-//             }
-//             console.log(i + " : ttl not expired")
-//             hasttl = -1
-//             const response = { 'hasttl':-1,'hascache':i }
-//             return response ;
-             
-//         }
-//     } 
-//     const response = { 'hasttl':-1,'hascache':-1 }
-//     return response ;
-// }
-
-// export function addToCache(lookId,resp){
-
-//     cacheJson.push(
-//         {
-//             "lookId" : lookId,
-//             "data" : resp.data.toString(),
-//             "ttl" : Date.now(),
-//             "headers" : resp.headers,
-//             "status" : resp.status
-//         }
-//     )
-
-
-// }
-
-// function updateCache(){}
 
 

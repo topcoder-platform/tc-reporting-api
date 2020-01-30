@@ -21,7 +21,7 @@ install_awscli: &install_awscli
 install_deploysuite: &install_deploysuite
   name: Installation of install_deploysuite.
   command: |
-    git clone --branch v1.3 https://github.com/topcoder-platform/tc-deploy-scripts ../buildscript
+    git clone --branch v1.4.2 https://github.com/topcoder-platform/tc-deploy-scripts ../buildscript
     cp ./../buildscript/master_deploy.sh .
     cp ./../buildscript/buildenv.sh .
     cp ./../buildscript/awsconfiguration.sh .
@@ -34,15 +34,17 @@ deploy_steps: &deploy_steps
   - run: *install_awscli
   - run: *install_deploysuite
   - setup_remote_docker
-  - run: docker build -t appiriodevops/tc-reporting-service:${DEPLOY_ENV}.${CIRCLE_BUILD_NUM} .
+  - run: docker build -t ${APPNAME}:latest .
   - deploy:
       name: "configuring aws environment"
       command: |
         ./awsconfiguration.sh $DEPLOY_ENV  
         source awsenvconf
-        ./buildenv.sh -e $DEPLOY_ENV -b ${DEPLOY_ENV}-tc-reporting-api-deployvar
+        ./buildenv.sh -e $DEPLOY_ENV -b ${LOGICAL_ENV}-${APPNAME}-ecs-deployvar
         source buildenvvar
-        ./master_deploy.sh -d EBS -e $DEPLOY_ENV -t "${DEPLOY_ENV}.${CIRCLE_BUILD_NUM}"
+        #./master_deploy.sh -d EBS -e $DEPLOY_ENV -t "${DEPLOY_ENV}.${CIRCLE_BUILD_NUM}"
+        ./master_deploy.sh -d ECS -e $DEPLOY_ENV -t latest -s ${LOGICAL_ENV}-global-appvar,${LOGICAL_ENV}-${APPNAME}-ecs-appvar -i ${APPNAME}
+
   #- run: .deploy/ebs_deploy.sh tc-reporting-service $DEPLOY_ENV $CIRCLE_BUILD_NUM
 
 jobs:
@@ -68,12 +70,16 @@ jobs:
     <<: *python_env
     environment:
       DEPLOY_ENV: "PROD"
+      LOGICAL_ENV: "prod"
+      APPNAME: "tc-reporting-api"
     steps: *deploy_steps
 
   deploy_dev:
     <<: *python_env
     environment:
       DEPLOY_ENV: "DEV"
+      LOGICAL_ENV: "dev"
+      APPNAME: "tc-reporting-api"
     steps: *deploy_steps
 
 workflows:
@@ -85,7 +91,7 @@ workflows:
           context : org-global
           filters:
             branches:
-              only: [dev]
+              only: [dev, dev-ecs]
           requires:
             - build
       - deploy_prod:

@@ -1,9 +1,10 @@
 'use strict'
 
-import express from 'express'
 import _ from 'lodash'
-import bodyParser from 'body-parser'
 import config from 'config'
+import express from 'express'
+import bodyParser from 'body-parser'
+import cors from 'cors'
 import router from './routes'
 import permissions from './permissions'
 import coreLib from 'tc-core-library-js'
@@ -25,6 +26,9 @@ app.use(bodyParser.json())
 // add request Id
 var addRequestId = expressRequestId()
 app.use(addRequestId)
+
+// CWD-- cors handling
+app.use(cors())
 
 // =======================
 // Loger =========

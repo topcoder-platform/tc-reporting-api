@@ -44,7 +44,7 @@
     "express-validation": "^0.6.0",
     "jackrabbit": "^4.3.0",
     "joi": "^8.0.5",
-    "lodash": "^4.16.4",
+    "lodash": "^4.17.21",
     "tc-core-library-js": "^1.0.8"
   },
   "devDependencies": {

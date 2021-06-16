@@ -6,10 +6,6 @@ RUN sed -i '/jessie-updates/d' /etc/apt/sources.list
 RUN apt-get update && \
     apt-get upgrade -y
 
-# install aws
-RUN apt-get install -y python-pip
-RUN pip install awscli
-
 # Create app directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app

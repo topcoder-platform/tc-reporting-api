@@ -8,13 +8,13 @@ node_env: &node_env
 # Python image to run aws utilities
 python_env: &python_env
   docker:
-    - image: circleci/python:2.7-stretch-browsers
+    - image: circleci/python:3.7.9-stretch-browsers
 
 # Instructions of installing aws utilities
 install_awscli: &install_awscli
   name: "Install awscli"
   command: |
-    sudo pip install awscli awsebcli --upgrade
+    sudo pip3 install awscli awsebcli --upgrade
     aws --version
     eb --version
 

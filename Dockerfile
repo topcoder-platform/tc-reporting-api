@@ -4,7 +4,7 @@ LABEL description="Reporting microservice"
 
 RUN sed -i '/jessie-updates/d' /etc/apt/sources.list
 RUN apt-get update && \
-    apt-get upgrade -y
+    apt-get upgrade -y --force-yes
 
 # Create app directory
 RUN mkdir -p /usr/src/app

@@ -3,6 +3,10 @@ LABEL version="1.0"
 LABEL description="Reporting microservice"
 
 RUN sed -i '/jessie-updates/d' /etc/apt/sources.list
+RUN sed -i 's/httpredir/archive/' /etc/apt/sources.list
+RUN sed -i 's/security.debian.org/archive.debian.org\/debian-security/' /etc/apt/sources.list
+RUN sed -i 's/deb.debian/archive.debian/' /etc/apt/sources.list
+
 RUN apt-get update && \
     apt-get upgrade -y --force-yes
 

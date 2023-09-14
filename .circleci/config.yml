@@ -98,6 +98,6 @@ workflows:
           context : org-global
           filters:
             branches:
-              only: [master, master-ecs]
+              only: [master, master-ecs, looker-v4-upgrade]
           requires:
             - build

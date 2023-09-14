@@ -5,7 +5,7 @@
     "version": "v4",
     "captureLogs": "false",
     "lookerApi": {
-        "host": "https://topcoder.looker.com:19999/api/3.0",
+        "host": "https://topcoder.looker.com:19999/api/4.0",
         "client_id": "xxxxxxxxxxxxxxxxxxxxxx",
         "client_secret": "zzzzzzzzzzzzzzzzzzzz",
         "loginUrl": "/login",

@@ -43,7 +43,7 @@ deploy_steps: &deploy_steps
         ./buildenv.sh -e $DEPLOY_ENV -b ${LOGICAL_ENV}-${APPNAME}-ecs-deployvar
         source buildenvvar
         #./master_deploy.sh -d EBS -e $DEPLOY_ENV -t "${DEPLOY_ENV}.${CIRCLE_BUILD_NUM}"
-        ./master_deploy.sh -d ECS -e $DEPLOY_ENV -t latest -s ${LOGICAL_ENV}-global-appvar,${LOGICAL_ENV}-${APPNAME}-ecs-appvar -i ${APPNAME}
+        ./master_deploy.sh -d ECS -e $DEPLOY_ENV -t latest -s ${LOGICAL_ENV}-global-appvar,${LOGICAL_ENV}-${APPNAME}-ecs-appvar -i ${APPNAME} -p FARGATE
 
   #- run: .deploy/ebs_deploy.sh tc-reporting-service $DEPLOY_ENV $CIRCLE_BUILD_NUM
 
